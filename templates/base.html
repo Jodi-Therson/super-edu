@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SuperEdu{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='images/superedu.png') }}" alt="SuperEdu Logo" class="logo">
+            <h1 class="brand-name">SuperEdu</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('chat') }}"
+                        class="{{ 'active' if request.endpoint == 'chat' else '' }}">Chat</a></li>
+                <li><a href="{{ url_for('history') }}"
+                        class="{{ 'active' if request.endpoint == 'history' else '' }}">History</a></li>
+                <li><a href="{{ url_for('achievements') }}"
+                        class="{{ 'active' if request.endpoint == 'achievements' else '' }}">Achievements</a></li>
+            </ul>
+        </nav>
+        <div class="user-menu">
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('settings') }}"
+                            class="{{ 'active' if request.endpoint == 'settings' else '' }}">Settings</a></li>
+                    <li class="logout"><a href="{{ url_for('logout') }}">Sign Out</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <main class="main-content">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <ul class=flash-messages>
+            {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+</body>
+
+</html>

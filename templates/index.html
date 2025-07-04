@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>{{ title }}</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--input-bg);
+        }
+        thead th {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+        tbody tr:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+            <h1 class="brand-name">Proyek AI</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="{{ 'active' if active_page == 'info' else '' }}">Informasi Kelompok</a></li>
+                <li><a href="#" class="{{ 'active' if active_page == 'chat' else '' }}">Halaman Chat</a></li>
+            </ul>
+        </nav>
+        <div class="logout">
+            <a href="#">Logout</a>
+        </div>
+    </div>
+
+    <main class="main-content">
+        <header class="content-header">
+            <h2>Pengembangan Software Edukasi Berbasis AI</h2>
+        </header>
+
+        <div class="content-body">
+            <div class="card">
+                <h3>Daftar Anggota Kelompok</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nama Anggota</th>
+                            <th>NIM (Nomor Induk Mahasiswa)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for member in members %}
+                        <tr>
+                            <td>{{ member.nama }}</td>
+                            <td>{{ member.nim }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

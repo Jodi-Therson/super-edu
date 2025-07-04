@@ -1,0 +1,9 @@
+# requirements.txt
+flask
+flask-login
+mysql-connector-python
+werkzeug
+google-generativeai
+python-dotenv
+faiss-cpu
+numpy

@@ -1,0 +1,800 @@
+MODUL PANDUAN INSTALASI DAN 
+PENGENALAN LINUX 
+ 
+ 
+ 
+INSTIKI CYBER HUB 
+ 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 
+1 
+ 
+DAFTAR ISI 
+DAFTAR ISI ........................................................................................................................... 1 
+DAFTAR GAMBAR ............................................................................................................ 2 
+BAB I PENGENALAN LINUX ............................................................................................. 4 
+1.1 
+Apa Itu Linux? ......................................................................................................... 4 
+1.2 
+Sejarah dan Perkembangan Linux ............................................................................... 4 
+1.3 
+Komponen Utama Linux ........................................................................................... 6 
+1.3.1 
+Kernel ............................................................................................... 6 
+1.3.2 
+Shell (Command Line Interface - CLI) .................................................. 7 
+1.3.3 
+Sistem File (File System) ..................................................................... 7 
+1.4 
+Perbedaan Linux dengan Sistem Operasi Lain (Windows & macOS) .............................. 8 
+1.5 
+Kelebihan Linux ....................................................................................................... 9 
+BAB II PERSIAPAN INSTALASI LINUX ........................................................................... 11 
+2.1 
+Memilih Distribusi Linux yang Sesuai ...................................................................... 11 
+2.1.1 
+Pertimbangan Utama dalam Memilih Distribusi Linux ...........................11 
+2.1.2 
+Distribusi Linux yang Populer .............................................................11 
+2.2 
+Persiapan Media Instalasi ........................................................................................ 15 
+2.2.1 
+Membuat Bootable Kali Linux USB dengan Etcher ...............................16 
+2.2.2 
+Membuat Bootable Kali Linux USB dengan Rufus ................................17 
+2.2.3 
+Instalasi Kali Linux dengan Virtual Machine (VMware) .........................18 
+2.2.4 
+Instalasi Kali Linux dengan Virtual Machine (VirtualBox) ......................21 
+BAB III LANGKAH-LANGKAH INSTALASI LINUX ......................................................... 27 
+3.1 
+Setup Kali Linux .................................................................................................... 27 
+BAB IV DAFTAR PUSTAKA ............................................................................................ 36 
+ 
+ 
+ 
+ 
+ 
+ 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 
+2 
+ 
+DAFTAR GAMBAR 
+Gambar 1 Linux .......................................................................................................... 4 
+Gambar 2 Linus Torvalds ............................................................................................. 5 
+Gambar 3 Perbandingan Linux Dengan OS Lainnya ........................................................ 8 
+Gambar 4 Keamanan Siber ........................................................................................... 8 
+Gambar 5 Linux commands .......................................................................................... 9 
+Gambar 6 Kali Linux ..................................................................................................12 
+Gambar 7 Kelebihan Kali Linux ...................................................................................13 
+Gambar 8 Parrot OS Linux ..........................................................................................13 
+Gambar 9 Kelebihan Parrot OS ....................................................................................14 
+Gambar 10 ArchStrike Linux .......................................................................................14 
+Gambar 11 Tampilan kali.org .......................................................................................15 
+Gambar 12 Memilih Kali Platforms ..............................................................................16 
+Gambar 13 Kali Installer Images ..................................................................................16 
+Gambar 14 Tampilan BalenaEtcher ...............................................................................17 
+Gambar 15 Tampilan Rufus .........................................................................................18 
+Gambar 16 Tampilan Awal VMware .............................................................................18 
+Gambar 17 Pilih Installer ISO ......................................................................................19 
+Gambar 18 Memilih Operating Sistem ..........................................................................19 
+Gambar 19 Nama Virtual Machine ...............................................................................20 
+Gambar 20 Hardware Vrtual Machine ...........................................................................20 
+Gambar 21 Tampilan Virtual Machine ...........................................................................21 
+Gambar 22 Membuat Virtual Machine ..........................................................................21 
+Gambar 23 Atur RAM VirtualBox ................................................................................22 
+Gambar 24 HardDisk VirtualBox .................................................................................22 
+Gambar 25  HardDisk FIleType....................................................................................23 
+Gambar 26 Physical HardDisk .....................................................................................23 
+Gambar 27 File Location And Size ...............................................................................24 
+Gambar 28 VirtualBox Kali Linux OFF ........................................................................24 
+Gambar 29 Kali Linux Settings VirtualBox ....................................................................25 
+Gambar 30 Processor VirtualBox .................................................................................25 
+Gambar 31 Popup Start-up Disk VBox ..........................................................................26 
+Gambar 32 Tampilan Setup Kali ...................................................................................26 
+Gambar 33 Graphical Install ........................................................................................27 
+Gambar 34 PIlih Bahasa ..............................................................................................27 
+Gambar 35 Pilih Lokasi...............................................................................................28 
+Gambar 36 Configure Keyboard ...................................................................................28 
+Gambar 37 HostName Kali ..........................................................................................29 
+Gambar 38 DomainName ............................................................................................29 
+Gambar 39 SetUp User ...............................................................................................30 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 
+3 
+ 
+Gambar 40 Configure Clock ........................................................................................30 
+Gambar 41Membuat Partisi .........................................................................................31 
+Gambar 42 PartisiDisk ................................................................................................31 
+Gambar 43 All In One Partition ....................................................................................32 
+Gambar 44 Finish Partition Disk ..................................................................................32 
+Gambar 45 Write The changes disk...............................................................................33 
+Gambar 46 tools atau software .....................................................................................33 
+Gambar 47 Instalasi Bootloader ...................................................................................34 
+Gambar 48 GRUB Boot Loader ...................................................................................34 
+Gambar 49 Finish Instalasi ..........................................................................................35 
+Gambar 50 Menu Login Kali Linux ..............................................................................35 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 
+4 
+ 
+BAB I 
+PENGENALAN LINUX 
+ 
+1.1 Apa Itu Linux? 
+ 
+Linux adalah nama untuk keluarga sistem operasi mirip Unix yang berbasis pada kernel 
+Linux, yang pertama kali dikembangkan oleh Linus Torvalds pada tahun 1991. Kernel ini dirilis 
+di bawah lisensi bebas dan sumber terbuka GNU GPL versi 2, memungkinkan siapa saja untuk 
+mengubah dan mendistribusikannya kembali bersama perangkat lunak lain yang dibutuhkan 
+dalam sebuah distribusi Linux. 
+ 
+Gambar 1 Linux 
+ 
+Awalnya dirancang untuk komputer pribadi dengan arsitektur Intel x86, Linux kini telah 
+dikembangkan dan dirilis untuk lebih banyak platform dibandingkan sistem operasi lainnya. 
+Secara harfiah, Linux merujuk pada kernel itu sendiri. Namun, beberapa pihak, terutama 
+anggota Yayasan Perangkat Lunak Bebas (FSF) seperti Richard Stallman, menyebutnya 
+sebagai GNU/Linux karena banyak alat pendukungnya berasal dari Proyek GNU yang 
+diprakarsai oleh Stallman. Hal ini menimbulkan kontroversi terkait penamaan Linux. 
+1.2 Sejarah dan Perkembangan Linux 
+ 
+Pada tahun 1991, seorang mahasiswa Universitas Helsinki, Linus Torvalds, memulai 
+proyek kecil yang akan mengubah dunia komputasi selamanya. Awalnya, ia hanya ingin 
+membuat sistem operasi yang lebih fleksibel untuk komputer pribadinya, karena sistem yang 
+ada saat itu seperti Minix terlalu terbatas. Tanpa disangka, proyek hobi ini berkembang menjadi 
+salah satu sistem operasi paling berpengaruh di dunia: Linux. 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 
+5 
+ 
+ 
+Gambar 2 Linus Torvalds 
+Awal Mula: Sebuah Pengumuman Sederhana 
+ 
+Pada 25 Agustus 1991, Torvalds mengumumkan proyeknya di kelompok diskusi 
+comp.os.minix. Dalam pengumuman tersebut, ia menyebut Linux sebagai proyek hobi dan 
+tidak berambisi menjadi sebesar GNU. Namun, hanya dalam beberapa bulan, sistem ini mulai 
+menunjukkan potensinya. 
+ 
+Sebelumnya, pada 3 Juli 1991, Torvalds sudah menyebut nama Linux dalam sebuah 
+pesan di forum, menandakan bahwa ia telah memikirkan tentang proyek ini sejak dini. Pada 
+tahap awal, Linux sudah bisa menjalankan bash (shell) dan compiler GCC, yang menjadi 
+fondasi bagi sistem operasi yang lebih lengkap. 
+Kontroversi dan Perkembangan Awal 
+ 
+Tak lama setelah Linux mulai dikenal, seorang profesor ilmu komputer dan pencipta 
+Minix, Andrew S. Tanenbaum, mengkritiknya. Pada 1992, Tanenbaum menyebut Linux 
+sebagai sistem operasi yang sudah ketinggalan zaman karena menggunakan desain 
+monolitik, bukan mikrokernel yang lebih modern. Ia juga berpendapat bahwa Linux terlalu 
+terikat dengan arsitektur x86, sehingga kurang fleksibel untuk platform lain. 
+ 
+Perdebatan antara Tanenbaum dan Torvalds berlangsung panas di Usenet, tetapi Linux 
+terus berkembang. Komunitas mulai terbentuk di sekitar proyek ini, dengan banyak 
+pengembang sukarela yang ikut berkontribusi. 
+Linux dan GNU: Kolaborasi yang Membawa Perubahan 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 
+6 
+ 
+ 
+Sejak awal, Linux memanfaatkan banyak alat yang dikembangkan oleh Proyek GNU, 
+yang diprakarsai oleh Richard Stallman. Stallman sendiri lebih suka menyebut sistem ini 
+sebagai GNU/Linux, karena banyak komponen pentingnya berasal dari GNU. 
+ 
+Torvalds pernah mengakui bahwa jika saat itu kernel GNU sudah tersedia, ia mungkin 
+tidak akan membuat Linux. Namun, karena kernel GNU belum siap, ia tetap melanjutkan 
+pengembangan Linux hingga akhirnya menjadi alternatif open-source yang kuat untuk sistem 
+operasi komersial seperti Windows dan macOS. 
+Dari Hobi Menjadi Revolusi 
+ 
+Seiring waktu, Linux tidak hanya menjadi sistem operasi untuk komputer pribadi, tetapi 
+juga untuk server, superkomputer, perangkat embedded, hingga smartphone (melalui Android). 
+Keberhasilannya tidak hanya terletak pada teknologinya, tetapi juga pada filosofi open-source, 
+yang memungkinkan siapa saja untuk berkontribusi dan mengembangkan Linux sesuai 
+kebutuhan mereka. 
+ 
+Hari ini, Linux menjadi inti dari banyak sistem komputasi modern, dari pusat data 
+raksasa hingga perangkat IoT di rumah kita. Dari sebuah proyek hobi seorang mahasiswa, 
+Linux telah berkembang menjadi simbol kebebasan dan inovasi di dunia teknologi. 
+1.3 Komponen Utama Linux 
+ 
+Secara garis besar, Linux memiliki tiga komponen utama: 
+1.3.1 Kernel 
+ 
+Kernel adalah inti dari sistem operasi Linux. Kernel bertanggung jawab 
+dalam: 
+• Mengelola sumber daya perangkat keras (CPU, RAM, hard drive, dll.). 
+• Menyediakan antarmuka antara perangkat lunak dan perangkat keras. 
+• Mengelola proses, sistem file, dan komunikasi antar perangkat. 
+ 
+Contoh kernel Linux yang terkenal adalah Linux Kernel 5.x yang memiliki 
+fitur keamanan dan efisiensi lebih baik dibandingkan versi sebelumnya. 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 
+7 
+ 
+1.3.2 Shell (Command Line Interface - CLI) 
+ 
+Shell adalah antarmuka yang memungkinkan pengguna berinteraksi dengan 
+sistem operasi melalui perintah teks. Terdapat beberapa jenis shell yang umum 
+digunakan di Linux, seperti: 
+• Bash (Bourne Again Shell) – Shell yang paling umum digunakan di berbagai 
+distribusi Linux. 
+• Zsh (Z Shell) – Memiliki fitur tambahan seperti auto-correction dan 
+scripting yang lebih fleksibel. 
+• Fish (Friendly Interactive Shell) – Shell yang lebih interaktif dan mudah 
+digunakan. 
+ 
+Shell digunakan untuk menjalankan perintah, mengelola file, dan 
+mengotomatisasi tugas melalui skrip. 
+1.3.3 Sistem File (File System) 
+ 
+Sistem file di Linux bertanggung jawab dalam mengelola penyimpanan dan 
+struktur data dalam komputer. Linux menggunakan sistem file hierarkis dengan 
+struktur direktori utama sebagai berikut: 
+• /root – Direktori utama (root) dari sistem Linux. 
+• /home – Direktori yang menyimpan file pengguna. 
+• /bin – Direktori yang menyimpan perintah dasar Linux seperti ls, cd, dan 
+mkdir. 
+• /etc – Direktori yang menyimpan file konfigurasi sistem. 
+• /var – Direktori untuk data yang sering berubah seperti log dan cache. 
+ 
+Beberapa sistem file yang umum digunakan di Linux meliputi ext4, XFS, 
+Btrfs, dan ZFS. 
+ 
+Ketiga komponen utama di atas—Kernel, Shell, dan Sistem File—bekerja bersama 
+untuk menjalankan sistem operasi Linux. Kernel menjadi jembatan antara perangkat keras dan 
+perangkat lunak, Shell memungkinkan pengguna berinteraksi dengan sistem, dan Sistem File 
+mengatur penyimpanan data secara efisien. Memahami komponen ini adalah langkah awal 
+yang penting dalam mempelajari dan mengelola Linux secara efektif. 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 
+8 
+ 
+1.4 Perbedaan Linux dengan Sistem Operasi Lain (Windows & macOS) 
+ 
+Linux, Windows, dan macOS adalah tiga sistem operasi utama yang memiliki 
+perbedaan signifikan dalam berbagai aspek. Dari segi lisensi, Linux bersifat open-source dan 
+gratis, memungkinkan pengguna untuk memodifikasi dan mendistribusikannya, sedangkan 
+Windows dan macOS bersifat closed-source dan berbayar, dengan macOS hanya tersedia untuk 
+perangkat Apple. 
+ 
+Gambar 3 Perbandingan Linux Dengan OS Lainnya 
+ 
+Dalam hal kustomisasi, Linux menawarkan fleksibilitas tinggi bagi pengguna untuk 
+mengubah tampilan dan fungsinya sesuai kebutuhan, sementara Windows memiliki batasan 
+tertentu, dan macOS mempertahankan desain eksklusif dengan pengalaman pengguna yang 
+seragam. Dari sisi keamanan, Linux lebih unggul karena sistem perizinannya yang ketat dan 
+lebih sedikit malware dibandingkan Windows, yang rentan terhadap virus, meskipun memiliki 
+berbagai solusi keamanan. macOS lebih aman dibandingkan Windows, tetapi masih memiliki 
+risiko terhadap serangan siber. 
+ 
+Gambar 4 Keamanan Siber 
+ 
+Ketersediaan perangkat lunak juga menjadi faktor pembeda. Linux memiliki banyak 
+aplikasi open-source, tetapi kurang mendukung software populer seperti Adobe Photoshop dan 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 
+9 
+ 
+Microsoft Office. Windows mendukung hampir semua perangkat lunak bisnis dan gaming, 
+sedangkan macOS unggul dalam aplikasi desain dan produksi multimedia. Dari segi 
+kompatibilitas hardware, Linux mendukung berbagai perangkat tetapi kadang mengalami 
+kendala driver, Windows kompatibel dengan hampir semua perangkat keras, dan macOS 
+terbatas pada perangkat Apple namun stabil dalam performa. 
+ 
+Dalam penggunaannya, Linux banyak diterapkan di server, cloud computing, dan 
+cybersecurity, Windows digunakan secara luas untuk kebutuhan pribadi, bisnis, dan gaming, 
+sementara macOS lebih populer di kalangan profesional kreatif seperti desainer grafis dan 
+editor video. 
+ 
+Gambar 5 Linux commands 
+ 
+Dengan kelebihan dan kekurangannya masing-masing, pilihan sistem operasi 
+tergantung pada kebutuhan pengguna. Linux cocok bagi mereka yang menginginkan 
+fleksibilitas dan keamanan, Windows lebih ramah pengguna dan mendukung berbagai aplikasi, 
+sementara macOS menawarkan ekosistem eksklusif dengan performa optimal untuk industri 
+kreatif. 
+1.5 Kelebihan Linux 
+ 
+Linux/UNIX memiliki beberapa keunggulan dibandingkan sistem operasi lain. Berikut 
+adalah beberapa keuntungan dalam menggunakan program dan file di Linux/UNIX: 
+ 
+Pada dasarnya, semua data tersimpan di dalam harddisk, meskipun dalam beberapa 
+kondisi bisa juga disimpan di disket. Linux/UNIX memberikan kemudahan dalam mengakses 
+terminal, printer, dan perangkat keras lainnya seolah-olah mereka adalah file yang tersimpan 
+di dalam harddisk atau disket. 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 10 
+ 
+ 
+Saat sebuah program dijalankan, program tersebut dipindahkan dari harddisk ke dalam 
+RAM dan mulai beroperasi sebagai proses. Linux/UNIX menyediakan berbagai layanan untuk 
+membuat, mengubah, dan mengelola program, proses, serta file dengan mudah. 
+ 
+Sistem file pada Linux/UNIX bersifat hierarkis, memudahkan pengguna dalam 
+mengatur dan mengakses data. Selain itu, Linux/UNIX mendukung multitasking, yang 
+memungkinkan sistem menjalankan banyak tugas secara bersamaan. 
+ 
+Tak hanya itu, Linux/UNIX juga mendukung multiuser, yang berarti lebih dari satu 
+pengguna dapat mengakses sistem dalam waktu yang sama. Bahkan, Linux juga mendukung 
+multiconsole, memungkinkan beberapa pengguna untuk bekerja langsung di satu komputer 
+tanpa harus terhubung melalui jaringan. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 11 
+ 
+BAB II 
+PERSIAPAN INSTALASI LINUX 
+2.1 Memilih Distribusi Linux yang Sesuai 
+ 
+Memilih distribusi Linux yang tepat dapat berdampak signifikan pada kinerja 
+organisasi Anda. Setiap distribusi memiliki fitur dan manfaat yang unik, jadi memahami hal ini 
+dapat membantu Anda memilih yang paling sesuai dengan kebutuhan perusahaan Anda. 
+2.1.1 Pertimbangan Utama dalam Memilih Distribusi Linux 
+• Keamanan 
+  
+Keamanan sangat penting bagi bisnis. Pilih distribusi yang 
+dikenal karena fitur keamanannya yang kuat dan pembaruan rutin untuk 
+melindungi sistem Anda dari kerentanan. 
+• Keandalan 
+  
+Keandalan memastikan kinerja yang konsisten dan waktu henti 
+yang minimal. Distribusi dengan versi dukungan jangka panjang (LTS) 
+direkomendasikan karena stabilitasnya dan siklus pembaruan yang 
+diperpanjang. 
+• Ketersediaan Dukungan 
+  
+Dukungan yang andal sangat penting untuk menjaga kelancaran 
+lingkungan Linux. Pilih distribusi dengan opsi dukungan yang kuat atau 
+layanan profesional. Di Tiger Computing, kami menawarkan dukungan 
+ahli yang disesuaikan dengan distribusi pilihan Anda. 
+2.1.2 Distribusi Linux yang Populer 
+• Kali Linux 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 12 
+ 
+ 
+Gambar 6 Kali Linux 
+  
+Kali Linux adalah sistem operasi berbasis Debian yang 
+dikembangkan oleh Offensive Security. Dengan tampilan sederhana dan 
+kemudahan penggunaan, Kali Linux cocok bagi pemula yang ingin belajar 
+penetrasi jaringan. Selain di PC, Kali Linux juga tersedia dalam versi 
+Android bernama Kali NetHunter dengan fungsi serupa. 
+  
+Kali Linux merupakan penerus BackTrack, dirancang khusus 
+untuk penetration testing dan keamanan komputer. Dikembangkan dengan 
+standar Debian, Kali Linux lebih stabil dan powerful dibanding 
+pendahulunya. Saat ini, Kali Linux tersedia secara open source dan gratis, 
+dengan lebih dari 300 tools untuk pengujian keamanan. 
+  
+Linux sendiri adalah kernel buatan Linus Torvalds yang 
+dikembangkan oleh komunitas global. Sistem ini memiliki fitur setara 
+Unix, seperti multitasking, virtual memory, dan TCP/IP networking, tetapi 
+tetap gratis di bawah lisensi GNU General Public License. 
+  
+Awalnya dibuat untuk PC berbasis 386/486, kini Linux 
+mendukung berbagai arsitektur seperti DEC Alpha, SUN Sparc, MIPS, 
+dan PowerPC. Linux dapat berjalan dengan minimal 150MB ruang disk 
+dan 2MB RAM, meskipun untuk penggunaan optimal disarankan 250MB 
+disk space dan 12–16MB RAM. Dukungan hardware terus berkembang, 
+tetapi beberapa perangkat mungkin masih membutuhkan driver tambahan. 
+Kelebihan Kali Linux : 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 13 
+ 
+ 
+Gambar 7 Kelebihan Kali Linux 
+• Parrot OS Linux 
+ 
+Gambar 8 Parrot OS Linux 
+  
+Parrot OS adalah distribusi dari GNU/Linux yang bersifat open 
+source. Selain itu Parrot memang sengaja dirancang untuk para pakar 
+keamanan, pengembang, dan orang yang mengutamakan privasi. Parrot 
+juga sudah dilakukan pengujian Debian dan bisa digunakan secara gratis. 
+Sistem operasi Parrot dianggap sudah menjadi senjata portabel yang 
+lengkap untuk keamanan TI hingga operasi forensik digital. Parrot OS 
+sendiri tersedia di Security and Home Editions sebagai VM dan juga 
+tersedia di Docker. OS yang satu ini juga dikirimkan secara default dengan 
+lingkungan Desktop MATE, KDE, sekaligus XFCE namun hanya 
+dikhususkan untuk perangkat edisi rumahan. 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 14 
+ 
+  
+Sejarah Parrot OS berawal karya dari Lorenzo Faletra yang 
+dirilis pertama kali pada 10 April 2013. Parrot OS awalnya dikembangkan 
+hanya sebagai bagian dari sebuah forum yaitu Frozenbox. Namun sistem 
+operasi ini selalu dikembangkan agar bisa bermanfaat bagi komunitas 
+pengembang open source, pakar keamanan profesional, pendukung hak 
+digital, hingga seluruh penggemar Linux yang ada di dunia. Parrot OS 
+memiliki kantor pusat yang berada di Italia. Hanya saja proyek ini diatur 
+oleh Parrot Security CIC yang merupakan sebuah perusahaan kepentingan 
+komunitas yang terdaftar di Inggris. 
+Kelebihan Parrot OS : 
+ 
+Gambar 9 Kelebihan Parrot OS 
+• ArchStrike Linux 
+ 
+Gambar 10 ArchStrike Linux 
+  
+Arch Linux (dikenal juga dengan ArchLinux atau Arch) adalah 
+sebuah distribusi Linux untuk komputer x86_64 (64 bit) yang didesain 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 15 
+ 
+untuk menjadi ringan dan sederhana. Pendekatan desain pengembang 
+distro ini berfokus pada kesederhanaan, kebenaran program dan 
+minimalisme. “Kesederhanaan” didefinisikan sebagai “tak perlu 
+tambahan, modifikasi, atau komplikasi” sesuai sudut pandang 
+pengembangnya, bukan sudut pandang pengguna. Arch Linux adalah 
+sebuah distribusi Linux berbasis biner, yang artinya, paket-paket aplikasi 
+didistribusikan dalam bentuk telah terkompilasi. Berbeda dengan Gentoo 
+yang mendistribusikan paket-paketnya dalam bentuk kode sumber. 
+  
+Terdapat 
+dua 
+versi 
+BlackArch 
+jika 
+pembaca 
+ingin 
+mengunduhnya. Terdapat versi Live dengan ukuran 7.5GB atau bisa 
+memakai versi Netinstall yang hanya berukuran 521MB. Versi Live 
+merupakan versi all in one (“hampir” semua ada) dan versi Netinstall 
+adalah versi kosongan dimana kita masih harus mengunduh aplikasi 
+lainnya. Perbedaanya untuk versi Live kita harus mengunduh sampai 
+selesai sebelum bisa memasangnya, tapi jika yang Netinstall kita bisa 
+memasang sistem dasarnya dulu. Setelah sistem dasarnya terpasang kita 
+bisa memakai sambil mengunduh aplikasi yang diperlukan. 
+2.2 Persiapan Media Instalasi 
+ 
+Sebagai langkah awal dalam proses instalasi Kali Linux, penting untuk mempersiapkan 
+media instalasi yang sesuai. Pendahuluan ini akan membantu Anda memahami langkah-
+langkah yang diperlukan sebelum memulai instalasi. 
+ 
+Gambar 11 Tampilan kali.org 
+ 
+Langkah pertama yang harus dilakukan adalah mengunduh file ISO Kali Linux dari 
+situs resminya (https://www.kali.org). Pastikan Anda memilih versi yang sesuai dengan 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 16 
+ 
+arsitektur perangkat Anda (64-bit atau 32-bit) saya sarankan untuk memilih installer images 
+dan memilih yang di recommended. Setelah file ISO berhasil diunduh, Anda dapat melanjutkan 
+ke tahap pembuatan media instalasi menggunakan USB bootable/Virtual Machine. 
+ 
+Gambar 12 Memilih Kali Platforms 
+ 
+Gambar 13 Kali Installer Images 
+2.2.1 Membuat Bootable Kali Linux USB dengan Etcher 
+• Sambungan USB Drive 
+Hubungkan drive USB ke port yang tersedia di PC/Laptop anda.  
+• Buka Etcher 
+Jalankan aplikasi Etcher yang telah diinstal sebelumnya 
+• Pilih file ISO 
+Klik “Flash from file”, lalu cari dan pilih file yang akan digunakan 
+• Pilih USB Drive 
+Klik “Select target”, kemudian pilih drivge USB yang ingin dijadikan 
+bootable 
+• Mulai Proses Flashing 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 17 
+ 
+Klik tombol “Flash!” untuk memulai proses. Jika muncul prompt UAC 
+(User Account Control), pilih "Yes" untuk memberikan izin 
+administrator. 
+ 
+Gambar 14 Tampilan BalenaEtcher 
+• Selesai & Eject USB 
+Setelah proses selesai, Etcher akan memberi notifikasi. Anda bisa melepas 
+USB dengan aman dan menggunakannya untuk booting Kali Linux. 
+2.2.2 Membuat Bootable Kali Linux USB dengan Rufus 
+• Hubungkan drive USB ke port USB yang tersedia di PC Windows Anda. 
+Catat huruf drive yang digunakan (misalnya "G:"). 
+• Jalankan Rufus, lalu pada bagian Drive, pastikan drive USB Anda telah 
+terdeteksi. 
+• Pada bagian Pemilihan Boot, klik SELECT dan pilih file ISO Kali 
+Linux yang telah diunduh sebelumnya. 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 18 
+ 
+ 
+Gambar 15 Tampilan Rufus 
+• Setelah semua pengaturan selesai, klik tombol START untuk memulai 
+proses flashing. 
+2.2.3 Instalasi Kali Linux dengan Virtual Machine (VMware) 
+• Buka VMwarenya dan klik Create a New Virtual Machine, Pilih yang 
+Typical. Lalu Klik Next 
+ 
+Gambar 16 Tampilan Awal VMware 
+• Pilih installer disc image file (iso), cari file iso yang tadi kalian download 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 19 
+ 
+ 
+Gambar 17 Pilih Installer ISO 
+• Pilih Operasi Sistem Linux -> Kemudian Version Linux -> Version 
+Debian 10 x64-bit atau Ubuntu 64 bit atau Debian, bebas karena kali 
+based on Debian Based. Lalu Klik Next. 
+ 
+Gambar 18 Memilih Operating Sistem 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 20 
+ 
+• Ganti Nama VM Machine namenya (Bebas), kalau disini aku pakai nama 
+Machinenya Linux, kemudian locationnya save machineya dimana 
+(Bebas). Lalu Klik Next. 
+ 
+Gambar 19 Nama Virtual Machine 
+• Ubah Storage Disk Sizenya menjadi 50 GB (tergantung kebutuhan) lalu 
+jika mau Ganti bisa klik Customize Hardware, ini adalah kapasitas storage 
+yang tersedia, kalau bisa Minimal 50 GB ya, biar nanti tidak ribet untuk 
+Upgrade Storagenya. Lalu Klik Finish. 
+ 
+Gambar 20 Hardware Vrtual Machine 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 21 
+ 
+• Jika Berhasil Virtual Machinenya berhasil dibuat, maka akan terbuka 
+halaman baru, kemudian pilih Linux dan Klik Power On This Virtual 
+Machine. Kemudian klik continue 
+ 
+Gambar 21 Tampilan Virtual Machine 
+2.2.4 Instalasi Kali Linux dengan Virtual Machine (VirtualBox) 
+• Download VirtualBox dari situs www.virtualbox.org, kemudian klik 
+install. 
+• Buka aplikasi VirtualBox yang telah Anda install. 
+• Create Virtual Machine dengan klik tombol New > isi nama, sistem 
+operasi, dan folder. 
+ 
+Gambar 22 Membuat Virtual Machine 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 22 
+ 
+• Memory size. Pilih ukuran RAM yang akan dialokasikan untuk Virtual 
+Machine Kali. Pada contoh kami memakai 1GB (bebas tergantung 
+kebutuhan). Lalu pilih Next. 
+ 
+Gambar 23 Atur RAM VirtualBox 
+• Hard Disk. Pilih sesuai default, yaitu Create virtual had disk now. Lalu 
+klik tombol Create. 
+ 
+Gambar 24 HardDisk VirtualBox 
+ 
+ 
+ 
+ 
+ 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 23 
+ 
+• Hard Disk file type. Pilih default VDI. Lalu klik tombol Next. 
+ 
+Gambar 25  HardDisk FIleType 
+• Storage on physical hard disk. Pilih default Dynamically allocated. Lalu 
+klik tombol Next. 
+ 
+Gambar 26 Physical HardDisk 
+ 
+ 
+ 
+ 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 24 
+ 
+• File allocated and size. Menentukan jumlah hard disk yang akan 
+digunakan untuk Virtual Machine ini. pada contoh kami mengisi 10GB. 
+Lalu klik tombol Create. 
+ 
+Gambar 27 File Location And Size 
+• Virtual Machine Kali linux sudah jadi dengan status Powered Off. 
+ 
+Gambar 28 VirtualBox Kali Linux OFF 
+Setelah Virtual Machine selesai dibuat dengan langkah-langkah diatas. 
+Langkah selanjutnya kita akan setting storage untuk memilih file ISO Kali 
+dan mengatur processor. 
+ 
+ 
+ 
+ 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 25 
+ 
+ 
+ 
+• Pilih tombol Setting > Storage > empty > pilih file iso Kali yang sudah di 
+download, seperti gambar dibawah ini. 
+ 
+Gambar 29 Kali Linux Settings VirtualBox 
+• Selanjutnya ke menu System untuk mengatur Processor virtual machine. 
+Pada contoh ini kami memakai 2 core. Lalu klik OK 
+ 
+Gambar 30 Processor VirtualBox 
+• Klik START. Jika muncul pop up start up disk, pilih Kali Linux yang 
+sudah kita pilih sebelumnya kemudian klik start. 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 26 
+ 
+ 
+Gambar 31 Popup Start-up Disk VBox 
+• Selesai dan akan muncul seperti ini 
+ 
+Gambar 32 Tampilan Setup Kali 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 27 
+ 
+BAB III 
+LANGKAH-LANGKAH INSTALASI LINUX 
+3.1 Setup Kali Linux 
+▪ Pilih Graphical Install, lalu teken enter. *Pada saat kita sudah memasuki OS Kali, 
+mouse dan ketikan kita masuk kedalam OS VM tersebut, jika ingin keluar kita 
+bisa menggunakan kombinasi keyboard Ctrl + Alt pada keyboard*. Kemudian klik 
+continue. 
+ 
+Gambar 33 Graphical Install 
+▪ Pilih Bahasa yang mau digunakan, misalnya Bahasa inggris, klik English, untuk kliknya 
+kita bisa menggunakan enter atau bisa klik continue. Kemudian Klik enter. Kemudian 
+klik continue. 
+ 
+Gambar 34 PIlih Bahasa 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 28 
+ 
+▪ Pilih Lokasi negara yang kita tempati, jika di negara Indonesia, pilih Other -> Asia -> 
+Indonesia. Kemudian Klik enter. 
+ 
+Gambar 35 Pilih Lokasi 
+▪ Selanjutnya muncul lokasi, klik continue, dan configure keyboard pakai yang Bahasa 
+inggris, Kemudian klik continue. 
+ 
+Gambar 36 Configure Keyboard 
+ 
+▪ Selanjutnya akan muncul nama hostname yang mau kita pakai (bebas). Disini pakai 
+defaulntya saja tidak apa-apa. Kemudian klik continue.  
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 29 
+ 
+ 
+Gambar 37 HostName Kali 
+▪ Selanjutnya akan muncul domain name. Ini bebas mau di isi atau tidak, jika kita 
+mempunyai domain bisa di isi. Biasanya domain name ini dgunakan untuk 
+mengidentifikasi nama server agar tahu siapa yang membuat reportin dan legitimate 
+ataut tidak. Kemudian klik continue. 
+ 
+Gambar 38 DomainName 
+▪ Kemudian akan muncul Full name for the new user, ini dapat di isi dengan nama kita 
+atau nama lain bebas. Karena ini untuk identfiikasi saja. 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 30 
+ 
+▪ Selanjutnya akan kita akan melakukan set up ID dan Password untuk rootnya. Ini 
+merupakan ID Password yang nanti akan terus kita gunakan terutama pada saat 
+login ke Operasi Sistem Kali Linux. Kemudian klik continue. 
+ 
+Gambar 39 SetUp User 
+▪ Selanjutnya kita konfigurasi time zone , karena sebelumnya kita sudah konfigurasi 
+lokasi kita di Indonesia, maka ini kita perlu menentukan zona jam yang dimana, ini 
+dapat 
+disesuaikan 
+ya 
+temen-temen 
+dengan 
+lokasi 
+zona 
+kalian 
+tempati 
+sekarang. Western : WIB, Central : WITA, Eastern : Timur. Kemudian klik 
+continue. 
+ 
+Gambar 40 Configure Clock 
+▪ Selanjutnya kita membuat partisi, disini kita pilih Guided — user entiner disk, lalu klik 
+continue. Kemudian klik continue. 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 31 
+ 
+ 
+Gambar 41Membuat Partisi 
+▪ Selanjutnya pilih hardisk yang akan digunakan, pilih saja Hardisk yang sudah 
+muncul SCSI3, lalu klik continue. 
+ 
+Gambar 42 PartisiDisk 
+▪ Selanjutnya klik All File in one partition -> Finish Partitioning -> Write Change to 
+disk pilih yes. Kemudian klik Continue dan tunggu sebentar, installasi yang sedang 
+berjalan. 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 32 
+ 
+ 
+Gambar 43 All In One Partition 
+ 
+Gambar 44 Finish Partition Disk 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 33 
+ 
+ 
+Gambar 45 Write The changes disk 
+▪ Pilih tools atau software yang mau di install sebagai tambahan, kalau ini bisa 
+default saja tidak apa-apa, Kemudian klik continue. (Mohon Ditunggu untuk proses 
+intalasi ini) 
+ 
+Gambar 46 tools atau software 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 34 
+ 
+▪ Kemudian lanjut instalasi bootloader, ini bisa langsung di pilih yes dan 
+continue, kemudian pilih lokasi instalasi bootloadernya. Kemudian klik continue. 
+ 
+Gambar 47 Instalasi Bootloader 
+▪ pilih hardisk yang tersedia, /dev/sda, kemudian klik continue. 
+ 
+Gambar 48 GRUB Boot Loader 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 35 
+ 
+▪ kemudian Finish Installation, klik continue. 
+ 
+Gambar 49 Finish Instalasi 
+▪ Setelah di restart akan masuk ke menu Login, Menu login ini ID dan Password yang 
+dibuat pada sebelumnya seperti pada step sebelumnya. 
+ 
+ 
+Gambar 50 Menu Login Kali Linux 
+ 
+ 
+ 
+ 
+ 
+Modul Panduan Instalasi dan Pengenalan Linux 
+INSTIKI CYBER HUB 36 
+ 
+BAB IV 
+DAFTAR PUSTAKA 
+Raharja, R. A., Yunianto, A., & Widyantoro, W. (n.d.). Pengenalan Linux. Open Source 
+Campus Agreement. Diakses dari https://mirror.unpad.ac.id/orari/library/library-ref-ind/ref-
+ind-1/application/linux/linux-dasar-single.pdf 
+Wikipedia. (n.d.). Linux. Diakses dari https://id.wikipedia.org/wiki/Linux 
+Fenia, R. W. (2023, Maret 17). Perbedaan Sistem Operasi Windows, Linux, dan macOS. 
+KMTech. Diakses dari https://www.kmtech.id/post/perbedaan-sistem-operasi-windows-linux-
+dan-macos 
+Prastyo, F. F. (2022, Oktober 11). Distro Linux Populer digunakan Seorang Cyber Security. 
+Medium. Diakses dari https://medium.com/@faizlovfa.id/distro-linux-populer-digunakan-
+seorang-cyber-security-49881b7e1dd7 
+Tiger Computing. (n.d.). Choosing the Right Linux Distribution. Diakses dari 
+https://www.tiger-computing.co.uk/tigeru/choosing-the-right-linux-distribution/ 
+Kali Linux. (n.d.). Live USB Install with Windows. Diakses dari 
+https://www.kali.org/docs/usb/live-usb-install-with-windows/#creating-a-bootable-kali-usb-
+drive-on-windows-rufus 
+Kristiandi, J. A. (2022, Juli 4). Cara Instalasi Kali Linux Pada VMware Workstation dan 
+Cara Instalasi Web Server Nginx pada Kali Linux. Medium. Diakses dari 
+https://medium.com/@andrewgt1/msa-weekly-2-cara-installasi-kali-linux-pada-vmware-
+workstation-dan-cara-installasi-web-server-ab2f9b8e70a4 
+Rudiharto14. (2023, Maret 14). Cara Download dan Install Kali Linux di VirtualBox. Rumah 
+Web. Diakses dari https://www.rumahweb.com/journal/cara-download-dan-install-kali-linux-
+di-virtualbox/ 
+ 

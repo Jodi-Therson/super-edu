@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Achievements - SuperEdu{% endblock %}
+
+{% block content %}
+<div class="content-header">
+    <h2>Pencapaian Saya</h2>
+</div>
+<div class="content-body">
+    <div class="card">
+        {% if achievements %}
+            {% for ach in achievements %}
+            <div class="achievement-item">
+                <p class="name">🏆 {{ ach.name }}</p>
+                <p class="description">{{ ach.description }}</p>
+                <p class="unlocked">Didapatkan pada: {{ ach.unlocked_at.strftime('%d %b %Y') }}</p>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>Anda belum membuka pencapaian apapun. Teruslah belajar!</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

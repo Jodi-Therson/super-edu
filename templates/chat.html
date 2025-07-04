@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+
+{% block title %}Chat - SuperEdu{% endblock %}
+
+{% block content %}
+<div class="chat-container">
+    <div class="chat-messages" id="chat-messages">
+        </div>
+
+    <div id="file-preview-container"></div>
+
+    <div class="chat-input">
+        <button id="attach-file-button" title="Lampirkan File">📎</button>
+        <input type="file" id="file-upload" accept="image/*,audio/*" style="display: none;">
+
+        <input type="text" id="message-input" placeholder="Ketik pesan atau lampirkan file...">
+        <button id="send-button">Send</button>
+        <button id="reset-chat-button">Reset Chat</button>
+    </div>
+</div>
+
+<script>
+    // --- Elemen DOM ---
+    const chatMessages = document.getElementById('chat-messages');
+    const messageInput = document.getElementById('message-input');
+    const sendButton = document.getElementById('send-button');
+    const resetChatButton = document.getElementById('reset-chat-button');
+    const attachFileButton = document.getElementById('attach-file-button');
+    const fileUploadInput = document.getElementById('file-upload');
+    const filePreviewContainer = document.getElementById('file-preview-container');
+
+    // Variabel untuk menyimpan file yang dipilih
+    let attachedFile = null;
+
+    // --- Fungsi Bantuan untuk UI Chat ---
+    function addMessage(text, sender, source = null) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', `${sender}-message`);
+
+        const textNode = document.createElement('p');
+        textNode.innerHTML = text;
+        messageElement.appendChild(textNode);
+
+        if (source && sender === 'bot') {
+            const sourceNode = document.createElement('small');
+            sourceNode.className = 'message-source';
+            sourceNode.textContent = `Sumber: ${source}`;
+            messageElement.appendChild(sourceNode);
+        }
+        
+        chatMessages.appendChild(messageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function showWelcomeMessage() {
+        chatMessages.innerHTML = ''; // Bersihkan chat sebelum menampilkan pesan selamat datang
+        const welcomeElement = document.createElement('div');
+        welcomeElement.classList.add('message', 'bot-message');
+        welcomeElement.innerHTML = `<p>Hello, {{ current_user.username }}! Bagaimana saya bisa membantu anda hari ini?</p>`;
+        chatMessages.appendChild(welcomeElement);
+    }
+
+    function showLoadingIndicator() {
+        const loadingElement = document.createElement('div');
+        loadingElement.classList.add('message', 'bot-message', 'loading-dots');
+        loadingElement.innerHTML = `<span></span><span></span><span></span>`;
+        chatMessages.appendChild(loadingElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        return loadingElement;
+    }
+
+    async function loadHistory() {
+        try {
+            const response = await fetch('/get_chat_history');
+            const history = await response.json();
+            history.forEach(chat => {
+                addMessage(chat.question, 'user');
+                addMessage(chat.answer, 'bot', chat.source);
+            });
+        } catch (error) {
+            console.error('Gagal memuat riwayat chat:', error);
+        }
+    }
+
+    // --- Logika untuk File Upload ---
+    function removeFile() {
+        attachedFile = null;
+        fileUploadInput.value = ''; // Penting untuk mereset input file
+        filePreviewContainer.innerHTML = '';
+    }
+
+    // --- Fungsi Utama dan Event Listeners ---
+    document.addEventListener('DOMContentLoaded', () => {
+        showWelcomeMessage();
+        loadHistory(); // Memuat riwayat chat saat halaman dibuka
+    });
+    
+    // Pemicu untuk membuka dialog file
+    attachFileButton.addEventListener('click', () => fileUploadInput.click());
+
+    // Menangani ketika pengguna memilih file
+    fileUploadInput.addEventListener('change', () => {
+        if (fileUploadInput.files.length > 0) {
+            attachedFile = fileUploadInput.files[0];
+            filePreviewContainer.innerHTML = `<div class="file-preview">File: ${attachedFile.name} <button class="remove-file-btn" onclick="removeFile()">✖</button></div>`;
+        }
+    });
+
+    async function handleSendMessage() {
+        const messageText = messageInput.value.trim();
+        if (messageText === '' && !attachedFile) return;
+
+        // Gunakan FormData untuk mengirim teks dan file
+        const formData = new FormData();
+        formData.append('message', messageText);
+        
+        if (attachedFile) {
+            formData.append('file', attachedFile);
+        }
+        
+        // Tampilkan pesan teks pengguna di chat
+        if (messageText) {
+            addMessage(messageText, 'user');
+        }
+        // Tampilkan indikator file yang dikirim
+        if (attachedFile) {
+            const fileType = attachedFile.type.startsWith('image') ? 'Gambar' : 'Audio';
+            addMessage(`<i>[${fileType} terlampir: ${attachedFile.name}]</i>`, 'user');
+        }
+        
+        // Reset input setelah data diambil
+        messageInput.value = '';
+        removeFile();
+
+        const loadingIndicator = showLoadingIndicator();
+
+        try {
+            const response = await fetch('/ask', {
+                method: 'POST',
+                body: formData, // Kirim sebagai FormData
+            });
+            chatMessages.removeChild(loadingIndicator);
+            const data = await response.json();
+            addMessage(data.answer, 'bot', data.source);
+        } catch (error) {
+            console.error('Error:', error);
+            if (chatMessages.contains(loadingIndicator)){
+                 chatMessages.removeChild(loadingIndicator);
+            }
+            addMessage('Maaf, ada masalah koneksi. Coba lagi nanti.', 'bot');
+        }
+    }
+
+    // Event listener untuk tombol reset
+    resetChatButton.addEventListener('click', async () => {
+        try {
+            await fetch('/reset_chat', { method: 'POST' }); // Panggil endpoint reset di server
+            showWelcomeMessage(); // Tampilkan ulang pesan selamat datang
+        } catch(error) {
+            console.error('Gagal mereset chat:', error);
+        }
+    });
+
+    sendButton.addEventListener('click', handleSendMessage);
+    messageInput.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            handleSendMessage();
+        }
+    });
+
+</script>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}History - SuperEdu{% endblock %}
+
+{% block content %}
+<div class="content-header">
+    <h2>Riwayat Percakapan</h2>
+</div>
+<div class="content-body">
+    <div class="card">
+        {% if history %}
+            {% for item in history %}
+            <div class="history-item">
+                <p class="question">{{ item.question }}</p>
+                <p class="answer">{{ item.answer | safe }}</p>
+                <p class="meta">
+                    <span>Sumber: {{ item.source }}</span> | 
+                    <span>Waktu: {{ item.timestamp.strftime('%d %b %Y, %H:%M') }}</span>
+                </p>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>Belum ada riwayat percakapan.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
